@@ -1,9 +1,6 @@
 package org.handler.infrastructure.persistence.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 import java.math.BigDecimal;
 
@@ -14,16 +11,10 @@ public class PaymentEntity {
     @Id
     private String id;
 
-    @Column(
-            name = "payer_account_id",
-            nullable = false
-    )
+    @Column(nullable = false)
     private String payerAccountId;
 
-    @Column(
-            name = "receiver_account_id",
-            nullable = false
-    )
+    @Column(nullable = false)
     private String receiverAccountId;
 
     @Column(
@@ -33,7 +24,6 @@ public class PaymentEntity {
     )
     private BigDecimal amount;
 
-    @Column(length = 255)
     private String description;
 
     @Column(nullable = false)
