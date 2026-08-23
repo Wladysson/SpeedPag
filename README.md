@@ -1,8 +1,121 @@
-# Gateway de Pagamentos Assíncrono
+# SpeedPag
 
-Este projeto simula um sistema de pagamentos instantâneos, com foco em **alta performance**, **resiliência** e **consistência eventual**. A solução foi construída com **arquitetura orientada a eventos (EDA)** e separada em dois microserviços principais: um serviço responsável por receber requisições de pagamento e outro encarregado do processamento financeiro assíncrono.
+---
 
-O sistema utiliza **Apache Kafka** como backbone de eventos, **Quarkus** com programação reativa para alta concorrência, **PostgreSQL** como banco transacional, **Kubernetes** para orquestração e **Prometheus** para observabilidade e acompanhamento de métricas de latência, como P99.
+<p align="center">
+  <strong>Gateway para Pagamentos Assíncrono</strong>
+</p>
+
+<p align="center">
+  Sistema de pagamentos instantâneos, cloud-native e orientado a eventos,
+  projetado com foco em baixa latência, alta performance, resiliência,
+  consistência eventual e processamento financeiro assíncrono.
+</p><br>
+
+<p align="center">
+  <!-- Linguagens -->
+  <img src="docs/images/home/Java.png" width="55" alt="Java"/>
+  <img src="docs/images/home/JavaScript.png" width="55" alt="JavaScript"/>
+  <img src="docs/images/home/Go.png" width="55" alt="Go"/>
+  <img src="docs/images/home/Python.png" width="55" alt="Python"/>
+  <img src="docs/images/home/PHP.png" width="55" alt="PHP"/>
+  <img src="docs/images/home/NET%20core.png" width="55" alt=".NET Core"/>
+  <img src="docs/images/home/Node.js.png" width="55" alt="Node.js"/>
+  <img src="docs/images/home/HashiCorp%20Terraform.png" width="55" alt="Node.js"/>
+
+  <!-- Cloud -->
+  <img src="docs/images/home/AWS.png" width="55" alt="AWS"/>
+  <img src="docs/images/home/Azure.png" width="55" alt="Azure"/>
+  <img src="docs/images/home/Google%20Cloud.png" width="55" alt="Google Cloud"/>
+
+  <!-- DevOps / Infraestrutura -->
+  <img src="docs/images/home/Docker.png" width="55" alt="Docker"/>
+  <img src="docs/images/home/Kubernetes.png" width="55" alt="Kubernetes"/>
+  <img src="docs/images/home/Ansible.png" width="55" alt="Ansible"/>
+  <img src="docs/images/home/Jenkins.png" width="55" alt="Jenkins"/>
+  <img src="docs/images/home/GitLab.png" width="55" alt="GitLab"/>
+  <img src="docs/images/home/Red%20Hat.png" width="55" alt="Red Hat"/>
+
+  <!-- Mensageria / Streaming -->
+  <img src="docs/images/home/icon-kafka-white-trans.png" width="55" alt="Apache Kafka"/>
+  <img src="docs/images/home/RabbitMQ.png" width="55" alt="RabbitMQ"/>
+  <img src="docs/images/home/amazon_kinesis_logo_icon_169609.webp" width="55" alt="Amazon Kinesis"/>
+
+  <!-- Observabilidade -->
+  <img src="docs/images/home/Prometheus.png" width="55" alt="Prometheus"/>
+  <img src="docs/images/home/Grafana.png" width="55" alt="Grafana"/>
+  <img src="docs/images/home/download.png" width="55" alt="Datadog"/>
+
+  <!-- Frontend -->
+  <img src="docs/images/home/Jamstack.png" width="55" alt="Jamstack"/>
+
+  <!-- Bancos de Dados -->
+  <img src="docs/images/home/PostgresSQL.png" width="55" alt="PostgreSQL"/>
+  <img src="docs/images/home/MySQL.png" width="55" alt="MySQL"/>
+  <img src="docs/images/home/MongoDB.png" width="55" alt="MongoDB"/>
+  <img src="docs/images/home/Microsoft%20SQL%20Server.png" width="55" alt="Microsoft SQL Server"/>
+  <img src="docs/images/home/Oracle.png" width="55" alt="Oracle"/>
+</p><br>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/System%20Design-Architecture-purple.svg" alt="System Design"/>
+  <img src="https://img.shields.io/badge/Microservices-Architecture-blue.svg" alt="Microservices"/>
+  <img src="https://img.shields.io/badge/Event%20Driven-Architecture-green.svg" alt="Event Driven Architecture"/>
+  <img src="https://img.shields.io/badge/Async-Processing-orange.svg" alt="Asynchronous Processing"/>
+  <img src="https://img.shields.io/badge/Resilience-SAGA-red.svg" alt="SAGA"/>
+  <img src="https://img.shields.io/badge/Consistency-Eventual-yellow.svg" alt="Eventual Consistency"/>
+  <img src="https://img.shields.io/badge/License-Proprietary-blue.svg" alt="License"/>
+</p>
+
+---
+
+# 📖 Visão Geral
+Este projeto se destaca por sua forma de pagamentos instantâneos, com foco em **alta performance**, **resiliência** e **consistência eventual**. A solução foi construída com **arquitetura orientada a eventos (EDA)** e separada em microserviços principais.
+
+Este gateway de pagamento online funciona basicamente como uma ponte entre o aplicativo que hospeda a etapa de finalização da compra e os sistemas responsáveis pelo processamento dos pagamentos, permitindo a transferência rápida e segura das informações pessoais e financeiras do cliente. Ele recebe os dados da transação, realiza as validações necessárias, criptografa as informações sensíveis e as encaminha para os processadores de pagamento de forma segura e em conformidade com os requisitos aplicáveis.
+
+Após a autorização e o processamento da transação, o gateway comunica automaticamente o resultado do pagamento, informando se a operação foi aprovada ou recusada. Essa arquitetura permite que diferentes meios e provedores de pagamento sejam integrados de forma desacoplada, mantendo o fluxo de pagamento seguro, confiável e eficiente.
+
+Além do processamento das transações, o gateway pode integrar-se a sistemas de contabilidade e plataformas de análise de dados, permitindo a sincronização de informações sobre pagamentos, cobranças recorrentes, fluxo de caixa e comportamento dos clientes. Dessa forma, a solução atua como um componente central da infraestrutura financeira da aplicação.
+
+> **Documentação viva:** esta documentação encontra-se em evolução contínua e pode sofrer alterações conforme novos serviços, componentes, arquiteturas e capacidades são implementados.
+
+---
+
+## Principios Arquiteturais
+
+---
+
+## Arquitetura da Plataforma
+
+---
+
+<h2>💳 Integrações de Pagamento</h2>
+
+<p>
+  O SpeedPag foi projetado para oferecer uma camada bastante diferente de integração com soluções de pagamento, permitindo que aplicações utilizem uma varias formas para trabalhar com múltiplos parceiros nacionais e internacionais.
+</p>
+
+<h3>🇧🇷 Instituições Nacionais</h3>
+
+<p>
+  Integrações voltadas para o ecossistema brasileiro, incluindo Pix,
+  cartões e demais meios de pagamento, para estas instituiçoes ate o momento:
+</p><br>
+
+<p align="left">
+  <img src="docs/images/home/mercado.png" width="60" alt="Mercado Pago"/>
+  <img src="docs/images/home/stone.png" width="60" alt="Stone"/>
+  <img src="docs/images/home/pag.png" width="60" alt="PagBank"/>
+  <img src="docs/images/home/cielo.png" width="60" alt="Cielo"/>
+  <img src="docs/images/home/itau.png" width="60" alt="Itaú"/>
+  <img src="docs/images/home/bradesco.png" width="60" alt="Bradesco"/>
+  <img src="docs/images/home/Santander_Logo.jpg" width="60" alt="Santander"/>
+  <img src="docs/images/home/brasil.jpg" width="60" alt="Banco do Brasil"/>
+  <img src="docs/images/home/bnb.png" width="60" alt="Banco do Brasil"/>
+  <img src="docs/images/home/c6.png" width="60" alt="Banco do Brasil"/>
+</p><br>
+
 
 ## Objetivos
 
@@ -13,21 +126,6 @@ O sistema utiliza **Apache Kafka** como backbone de eventos, **Quarkus** com pro
 - Escalar horizontalmente com Kubernetes.
 - Monitorar saúde, throughput, lag e latência operacional.
 
-
-
-## Guias Relacionais
-
-- Flyway ([guide](https://quarkus.io/guides/flyway)): Handle your database schema migrations
-- Micrometer Registry Prometheus ([guide](https://quarkus.io/guides/micrometer)): Enable Prometheus support for Micrometer
-- SmallRye OpenAPI ([guide](https://quarkus.io/guides/openapi-swaggerui)): Document your REST APIs with OpenAPI - comes with Swagger UI
-- Apache Kafka Client ([guide](https://quarkus.io/guides/kafka)): Connect to Apache Kafka with its native API
-- REST Jackson ([guide](https://quarkus.io/guides/rest#json-serialisation)): Jackson serialization support for Quarkus REST. This extension is not compatible with the quarkus-resteasy extension, or any of the extensions that depend on it
-- Messaging - Kafka Connector ([guide](https://quarkus.io/guides/kafka-getting-started)): Connect to Kafka with Reactive Messaging
-- Scheduler ([guide](https://quarkus.io/guides/scheduler)): Schedule jobs and tasks
-- Apache Kafka Streams ([guide](https://quarkus.io/guides/kafka-streams)): Implement stream processing applications based on Apache Kafka
-- SmallRye Health ([guide](https://quarkus.io/guides/smallrye-health)): Monitor service health
-- Redis Cache ([guide](https://quarkus.io/guides/cache-redis-reference)): Use Redis as the caching backend
-- JDBC Driver - PostgreSQL ([guide](https://quarkus.io/guides/datasource)): Connect to the PostgreSQL database via JDBC
 
 ## Módulos principais
 
