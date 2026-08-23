@@ -98,13 +98,13 @@ Além do processamento das transações, o gateway pode integrar-se a sistemas d
 
 ---
 
-<h2>💳 Integrações de Pagamento</h2>
+<h2>💳 Integrações de Pagamento e seus Setores</h2>
 
 <p>
   O SpeedPag esta sendo projetado para oferecer uma camada bastante ampla de integração com soluções de pagamento, permitindo que aplicações utilizem varias formas para trabalhar com múltiplos parceiros nacionais e internacionais.
 </p>
 
-<h3>🇧🇷 Instituições Nacionais</h3>
+<h3 style="text-align: center;">🇧🇷 Instituições Nacionais</h3>
 
 <p>
   Integrações voltadas para o ecossistema brasileiro, incluindo Pix,
@@ -122,7 +122,24 @@ Além do processamento das transações, o gateway pode integrar-se a sistemas d
   <img src="docs/images/home/brasil.jpg" width="80" alt="Banco do Brasil"/>
   <img src="docs/images/home/bnb.png" width="80" alt="Banco do Brasil"/>
   <img src="docs/images/home/c6.png" width="80" alt="Banco do Brasil"/>
-</p><br>
+</p>
+
+---
+
+<h3 style="text-align: center;">🌎 Instituições Internacionais</h3>
+
+<p>
+  Integrações para o ecossistema internacional, incluindo transaçoes,
+  cartões e demais tipos de pagamento que esta sendo trabalhado nestas instituiçoes:
+</p>
+
+<p align="center">
+  <img src="docs/images/home/flow/Citibank-Logo-2000.jpg" width="90" alt="Mercado Pago"/>
+  <img src="docs/images/home/flow/jp.jpg" width="90" alt="Stone"/>
+  <img src="docs/images/home/flow/nomad.png" width="90" alt="PagBank"/>
+  <img src="docs/images/home/flow/revolut.png" width="90" alt="Cielo"/>
+  <img src="docs/images/home/flow/Scotiabank-Emblema.jpg" width="90" alt="Banco do Brasil"/>
+</p>
 
 ---
 
@@ -179,6 +196,10 @@ Após o processamento, o gateway de pagamento informa seu aplicativo sobre o sta
 <img src="docs/images/estrutura/retorno%20de%20chamada.png">
 
 ---
+
+### 4. Tratamento de erros e casos extremos
+
+<img src="docs/images/estrutura/tratamento.png">
 
 ## Módulos principais
 
