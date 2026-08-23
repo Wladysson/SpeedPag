@@ -1,7 +1,5 @@
 # SpeedPag
 
----
-
 <p align="center">
   <strong>Gateway para Pagamentos Assíncrono</strong>
 </p>
@@ -82,40 +80,71 @@ Além do processamento das transações, o gateway pode integrar-se a sistemas d
 
 ---
 
-## Principios Arquiteturais
+## 🏗️ Princípios Arquiteturais
 
----
-
-## Arquitetura da Plataforma
+| Princípio | Descrição                                                                                                   |
+|-----------|-------------------------------------------------------------------------------------------------------------|
+| **Domain-Driven Design** | Decomposição de serviços orientada a domínios de negócio.                                                   |
+| **Independent Deployment** | Cada serviço pode ser implantado independentemente.                                                         |
+| **Event-Driven Communication** | Comunicação assíncrona baseada em eventos.                                                                  |
+| **Distributed Transaction Coordination** | Coordenação de transações distribuídas com padrões como Saga Coreografada e Orquestrada com Outbox.         |
+| **Resilience & Fault Isolation** | Isolamento de falhas e padrões de resiliência (Circuit Breaker, Retry, Bulkhead).                           |
+| **Secure Service-to-Service** | Comunicação segura entre serviços com mTLS e autenticação mútua.                                            |
+| **Centralized Observability** | Observabilidade centralizada com logs, métricas e traces distribuídos.                                      |
+| **Infrastructure as Code** | Infraestrutura versionada e automatizada com Terraform.                                                     |
+| **Automated CI/CD** | Pipelines de integração e entrega contínua automatizadas com verificação de imagens dos containers.         |
+| **Cloud-Native Deployment** | Implantação em Kubernetes com escalabilidade automática juntamente com terraform em ambientes AWS e Google. |
+| **Continuous Evolution** | Evolução contínua de capacidades de negócio.                                                                |
 
 ---
 
 <h2>💳 Integrações de Pagamento</h2>
 
 <p>
-  O SpeedPag foi projetado para oferecer uma camada bastante diferente de integração com soluções de pagamento, permitindo que aplicações utilizem uma varias formas para trabalhar com múltiplos parceiros nacionais e internacionais.
+  O SpeedPag esta sendo projetado para oferecer uma camada bastante ampla de integração com soluções de pagamento, permitindo que aplicações utilizem varias formas para trabalhar com múltiplos parceiros nacionais e internacionais.
 </p>
 
 <h3>🇧🇷 Instituições Nacionais</h3>
 
 <p>
   Integrações voltadas para o ecossistema brasileiro, incluindo Pix,
-  cartões e demais meios de pagamento, para estas instituiçoes ate o momento:
-</p><br>
+  cartões e demais meios de pagamento que estao sendo trabalhadas nestas instituiçoes:
+</p>
 
 <p align="left">
-  <img src="docs/images/home/mercado.png" width="60" alt="Mercado Pago"/>
-  <img src="docs/images/home/stone.png" width="60" alt="Stone"/>
-  <img src="docs/images/home/pag.png" width="60" alt="PagBank"/>
-  <img src="docs/images/home/cielo.png" width="60" alt="Cielo"/>
-  <img src="docs/images/home/itau.png" width="60" alt="Itaú"/>
-  <img src="docs/images/home/bradesco.png" width="60" alt="Bradesco"/>
-  <img src="docs/images/home/Santander_Logo.jpg" width="60" alt="Santander"/>
-  <img src="docs/images/home/brasil.jpg" width="60" alt="Banco do Brasil"/>
-  <img src="docs/images/home/bnb.png" width="60" alt="Banco do Brasil"/>
-  <img src="docs/images/home/c6.png" width="60" alt="Banco do Brasil"/>
+  <img src="docs/images/home/mercado.png" width="80" alt="Mercado Pago"/>
+  <img src="docs/images/home/stone.png" width="80" alt="Stone"/>
+  <img src="docs/images/home/pag.png" width="80" alt="PagBank"/>
+  <img src="docs/images/home/cielo.png" width="80" alt="Cielo"/>
+  <img src="docs/images/home/itau.png" width="80" alt="Itaú"/>
+  <img src="docs/images/home/bradesco.png" width="80" alt="Bradesco"/>
+  <img src="docs/images/home/Santander_Logo.jpg" width="80" alt="Santander"/>
+  <img src="docs/images/home/brasil.jpg" width="80" alt="Banco do Brasil"/>
+  <img src="docs/images/home/bnb.png" width="80" alt="Banco do Brasil"/>
+  <img src="docs/images/home/c6.png" width="80" alt="Banco do Brasil"/>
 </p><br>
 
+---
+
+# 🧭 Arquitetura, Fluxos e Diagramas da Plataforma
+
+Esta seção apresenta os principais fluxos, componentes e decisões arquiteturais implementados na plataforma até o momento.
+As imagens abaixo representam diferentes estágios de desenvolvimento e teste e destinam-se a fornecer evidência visual da plataforma operando com sucesso.
+
+Os diagramas têm como objetivo facilitar a compreensão das interações entre serviços, infraestrutura e componentes da plataforma, servindo também como referência durante o desenvolvimento e evolução da arquitetura.
+
+> A documentação é viva e pode ser atualizada continuamente a qualquer momento conforme novos serviços, integrações e componentes são implementados.
+
+> Os screenshots são intencionalmente apresentados como evidência de implementação em vez de estarem atrelados a uma categoria específica de documentação. No entanto,
+cada serviço tem suas imagens e explicaçao em suas devidas configurações.
+
+> Nota: Os padrões apresentados nesta seção representam apenas os principais conceitos arquiteturais utilizados na plataforma. A documentação completa de cada domínio pode conter outros padrões e estratégias específicas. Para conhecer as demais implementações, consulte os links disponíveis nas respectivas seções e documentações dos serviços.
+
+## Backend e Desenvolvimento das Configurações
+
+bla
+
+---
 
 ## Objetivos
 
@@ -126,6 +155,30 @@ Além do processamento das transações, o gateway pode integrar-se a sistemas d
 - Escalar horizontalmente com Kubernetes.
 - Monitorar saúde, throughput, lag e latência operacional.
 
+---
+
+## Integração do gateway de pagamento para design de sistemas
+
+### 1. Iniciação de Pagamento
+O processo de pagamento começa quando um usuário decide fazer uma compra. Veja como ele geralmente se desenrola:
+
+<img src="docs/images/estrutura/inicia.png">
+
+---
+
+### 2. Processamento de Pagamento
+Assim que o usuário for redirecionado para o gateway de pagamento, o processamento propriamente dito terá início:
+
+<img src="docs/images/estrutura/Processamento%20de%20Pagamentos.png">
+
+---
+
+### 3. Conclusão do pagamento
+Após o processamento, o gateway de pagamento informa seu aplicativo sobre o status da transação:
+
+<img src="docs/images/estrutura/retorno%20de%20chamada.png">
+
+---
 
 ## Módulos principais
 
