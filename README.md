@@ -82,16 +82,12 @@ Além do processamento das transações, o gateway pode integrar-se a sistemas d
 | Princípio | Descrição                                                                                                   |
 |-----------|-------------------------------------------------------------------------------------------------------------|
 | **Domain-Driven Design** | Decomposição de serviços orientada a domínios de negócio.                                                   |
-| **Independent Deployment** | Cada serviço pode ser implantado independentemente.                                                         |
 | **Event-Driven Communication** | Comunicação assíncrona baseada em eventos.                                                                  |
 | **Distributed Transaction Coordination** | Coordenação de transações distribuídas com padrões como Saga Coreografada e Orquestrada com Outbox.         |
 | **Resilience & Fault Isolation** | Isolamento de falhas e padrões de resiliência (Circuit Breaker, Retry, Bulkhead).                           |
-| **Secure Service-to-Service** | Comunicação segura entre serviços com mTLS e autenticação mútua.                                            |
 | **Centralized Observability** | Observabilidade centralizada com logs, métricas e traces distribuídos.                                      |
 | **Infrastructure as Code** | Infraestrutura versionada e automatizada com Terraform.                                                     |
 | **Automated CI/CD** | Pipelines de integração e entrega contínua automatizadas com verificação de imagens dos containers.         |
-| **Cloud-Native Deployment** | Implantação em Kubernetes com escalabilidade automática juntamente com terraform em ambientes AWS e Google. |
-| **Continuous Evolution** | Evolução contínua de capacidades de negócio.                                                                |
 
 ---
 
