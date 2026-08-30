@@ -1,5 +1,3 @@
-# SpeedPag
-
 <p align="center">
   <strong>Gateway para Pagamentos Assíncrono</strong>
 </p>
@@ -31,7 +29,6 @@
   <img src="docs/images/home/Kubernetes.png" width="55" alt="Kubernetes"/>
   <img src="docs/images/home/Ansible.png" width="55" alt="Ansible"/>
   <img src="docs/images/home/Jenkins.png" width="55" alt="Jenkins"/>
-  <img src="docs/images/home/GitLab.png" width="55" alt="GitLab"/>
   <img src="docs/images/home/Red%20Hat.png" width="55" alt="Red Hat"/>
 
   <!-- Mensageria / Streaming -->
@@ -159,7 +156,9 @@ cada serviço tem suas imagens e explicaçao em suas devidas configurações.
 
 ## Backend e Desenvolvimento das Configurações
 
-bla
+A arquitetura segue o estilo de **microserviços desacoplados por eventos**, no qual cada serviço pode evoluir e ser implantado de forma independente. Em vez de uma chamada síncrona encadeando todas as etapas do pagamento, o sistema publica eventos e permite que os consumidores reajam de forma assíncrona, reduzindo acoplamento e melhorando escalabilidade.
+
+O fluxo distribuído de pagamento utiliza o padrão **SAGA com coreografia**, no qual cada etapa do processamento reage ao evento anterior e emite um novo evento ao concluir sua responsabilidade. Esse modelo é adequado para cenários em que múltiplos serviços precisam manter consistência eventual sem depender de uma transação distribuída tradicional.
 
 ---
 
@@ -211,11 +210,6 @@ Após o processamento, o gateway de pagamento informa seu aplicativo sobre o sta
 | `infra` | Reúne Docker, Kubernetes e Terraform para empacotamento e provisionamento da plataforma.
 | `observability` | Contém dashboards, regras de alerta e artefatos para análise operacional.
 
-## Arquitetura
-
-A arquitetura segue o estilo de **microserviços desacoplados por eventos**, no qual cada serviço pode evoluir e ser implantado de forma independente. Em vez de uma chamada síncrona encadeando todas as etapas do pagamento, o sistema publica eventos e permite que os consumidores reajam de forma assíncrona, reduzindo acoplamento e melhorando escalabilidade. 
-
-O fluxo distribuído de pagamento utiliza o padrão **SAGA com coreografia**, no qual cada etapa do processamento reage ao evento anterior e emite um novo evento ao concluir sua responsabilidade. Esse modelo é adequado para cenários em que múltiplos serviços precisam manter consistência eventual sem depender de uma transação distribuída tradicional.
 
 ## Fluxo de pagamento
 
@@ -227,7 +221,7 @@ O fluxo distribuído de pagamento utiliza o padrão **SAGA com coreografia**, no
 6. Se alguma etapa falhar após uma operação parcial, eventos de compensação são disparados para restaurar consistência.
 7. As métricas operacionais e de latência são expostas para observabilidade e acompanhamento contínuo.
 
-## Estrutura do repositório
+## Estrutura Central
 
 ```text
 speedpag/
@@ -357,31 +351,11 @@ Cada microserviço segue uma separação por camadas para manter o código mais 
 4. Envie uma requisição HTTP para o endpoint de pagamentos.
 5. Acompanhe o fluxo pelos logs, tópicos Kafka e métricas exportadas.
 
-### Exemplo de build
-
-```bash
-mvn clean install
-```
-
-### Exemplo de execução do handler
-
-```bash
-cd services/payment-handler
-mvn quarkus:dev
-```
-
-### Exemplo de execução do processor
-
-```bash
-cd services/payment-processor
-mvn quarkus:dev
-```
-
 ## Observabilidade
 
 O projeto foi pensado para permitir análise operacional ponta a ponta. As métricas expostas pelos serviços podem ser coletadas pelo Prometheus, enquanto dashboards podem consolidar indicadores como taxa de sucesso, tempo de processamento, throughput, lag dos consumidores e latência P99.
 
-Indicadores recomendados:
+Indicadores de:
 
 - Tempo total de processamento por pagamento.
 - Latência P50, P95 e P99.
@@ -389,13 +363,4 @@ Indicadores recomendados:
 - Tamanho de filas e lag dos consumidores Kafka.
 - Quantidade de compensações executadas.
 - Volume de pagamentos por segundo.
-
-## Testes
-
-A estratégia de testes pode ser dividida em diferentes níveis para dar segurança à evolução do sistema. Em arquiteturas de microserviços orientadas a eventos, é especialmente útil combinar testes unitários, integração entre aplicação e mensageria, além de testes de contrato e fluxos ponta a ponta.
-
-- **Unitários** para regras de negócio isoladas.
-- **Integração** para banco, Kafka e persistência.
-- **Contrato** para validar compatibilidade dos eventos e da API.
-- **E2E** para o fluxo completo de pagamento e compensação.
 
