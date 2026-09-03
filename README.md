@@ -65,7 +65,7 @@
 ---
 
 # 📖 Visão Geral
-Este projeto se destaca por sua forma de pagamentos instantâneos, com foco em **alta performance**, **resiliência** e **consistência eventual**. A solução foi construída com **arquitetura orientada a eventos (EDA)** e separada em microserviços principais.
+Este projeto se destaca por sua forma de pagamentos instantâneos, com foco em **alta performance**, **resiliência** e **consistência eventual**.
 
 Este gateway de pagamento online funciona basicamente como uma ponte entre o aplicativo que hospeda a etapa de finalização da compra e os sistemas responsáveis pelo processamento dos pagamentos, permitindo a transferência rápida e segura das informações pessoais e financeiras do cliente. Ele recebe os dados da transação, realiza as validações necessárias, criptografa as informações sensíveis e as encaminha para os processadores de pagamento de forma segura e em conformidade com os requisitos aplicáveis.
 
@@ -156,7 +156,7 @@ cada serviço tem suas imagens e explicaçao em suas devidas configurações.
 
 ## Backend e Desenvolvimento das Configurações
 
-A arquitetura segue o estilo de **microserviços desacoplados por eventos**, no qual cada serviço pode evoluir e ser implantado de forma independente. Em vez de uma chamada síncrona encadeando todas as etapas do pagamento, o sistema publica eventos e permite que os consumidores reajam de forma assíncrona, reduzindo acoplamento e melhorando escalabilidade.
+A arquitetura segue o estilo de **Arquitetura de microsserviços síncronos orientados a domínios**, no qual cada serviço pode evoluir e ser implantado de forma independente. Em vez de uma chamada síncrona encadeando todas as etapas do pagamento, o sistema publica eventos e permite que os consumidores reajam de forma assíncrona, reduzindo acoplamento e melhorando escalabilidade.
 
 O fluxo distribuído de pagamento utiliza o padrão **SAGA com coreografia**, no qual cada etapa do processamento reage ao evento anterior e emite um novo evento ao concluir sua responsabilidade. Esse modelo é adequado para cenários em que múltiplos serviços precisam manter consistência eventual sem depender de uma transação distribuída tradicional.
 
