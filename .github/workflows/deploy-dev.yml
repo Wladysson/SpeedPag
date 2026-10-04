@@ -1,4 +1,4 @@
-name: release
+name: deploy-dev
 
 on:
   workflow_dispatch:
@@ -8,4 +8,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Placeholder
-        run: echo "Workflow release configurado para implementação futura."
+        run: echo "Workflow deploy-dev configurado para implementação futura."
