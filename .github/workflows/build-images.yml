@@ -1,4 +1,11 @@
-name: build-images.yml
+name: build-images
+
 on:
+  workflow_dispatch:
 
 jobs:
+  placeholder:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Placeholder
+        run: echo "Workflow build-images configurado para implementação futura."

@@ -1,0 +1,11 @@
+name: build-dotnet
+
+on:
+  workflow_dispatch:
+
+jobs:
+  placeholder:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Placeholder
+        run: echo "Workflow build-dotnet configurado para implementação futura."

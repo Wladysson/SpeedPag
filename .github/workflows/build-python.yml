@@ -1,4 +1,11 @@
-name: build-python.yml
+name: build-python
+
 on:
+  workflow_dispatch:
 
 jobs:
+  placeholder:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Placeholder
+        run: echo "Workflow build-python configurado para implementação futura."

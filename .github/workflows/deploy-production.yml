@@ -1,4 +1,11 @@
-name: deploy-production.yml
+name: deploy-production
+
 on:
+  workflow_dispatch:
 
 jobs:
+  placeholder:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Placeholder
+        run: echo "Workflow deploy-production configurado para implementação futura."

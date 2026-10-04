@@ -1,4 +1,11 @@
-name: deploy-staging.yml
+name: deploy-staging
+
 on:
+  workflow_dispatch:
 
 jobs:
+  placeholder:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Placeholder
+        run: echo "Workflow deploy-staging configurado para implementação futura."

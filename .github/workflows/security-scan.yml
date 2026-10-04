@@ -1,0 +1,11 @@
+name: security-scan
+
+on:
+  workflow_dispatch:
+
+jobs:
+  placeholder:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Placeholder
+        run: echo "Workflow security-scan configurado para implementação futura."

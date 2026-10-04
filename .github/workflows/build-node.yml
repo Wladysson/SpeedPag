@@ -1,0 +1,11 @@
+name: build-node
+
+on:
+  workflow_dispatch:
+
+jobs:
+  placeholder:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Placeholder
+        run: echo "Workflow build-node configurado para implementação futura."

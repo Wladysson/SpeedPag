@@ -1,4 +1,11 @@
-name: release.yml
+name: release
+
 on:
+  workflow_dispatch:
 
 jobs:
+  placeholder:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Placeholder
+        run: echo "Workflow release configurado para implementação futura."
